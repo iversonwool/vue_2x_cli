@@ -1,19 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+
+    <LkPlayground ref="lkpg" />
+    <br />
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import HelloWorld from "./components/HelloWorld.vue";
+import LkPlayground from "./components/LkPlayground.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+    LkPlayground,
+  },
+  
+  methods: {
+    msg(message) {
+      alert(message);
+    },
+  },
+  mounted() {
+    this.$refs.lkpg.$on("msg", this.msg);
+  },
+};
 </script>
 
 <style>
@@ -25,4 +39,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
