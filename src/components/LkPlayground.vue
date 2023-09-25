@@ -27,13 +27,23 @@
         {{slotProps}}
       </template>
     </slot-demo>
+
+    <count />
+
+
+    <demo />
+
+    <div>{{msg}}</div>
+    <div>{{message}}</div>
   </div>
 </template>
 
 <script>
 import 'animate.css'
-
+import {mapState, mapGetters} from 'vuex'
 import SlotDemo from './SlotDemo.vue'
+import Demo from './Demo.vue'
+import Count from './Count.vue'
 export default {
   name: "LkPlayground",
   data() {
@@ -42,8 +52,14 @@ export default {
     };
   },
   components: {
-    SlotDemo
-  }
+    SlotDemo,
+    Count,
+    Demo
+  },
+  computed: {
+    ...mapState(['sum', 'msg']),
+    ...mapGetters(['message'])
+  },
 }
 </script>
 
