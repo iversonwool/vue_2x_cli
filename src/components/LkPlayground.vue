@@ -57,8 +57,11 @@ export default {
     Demo
   },
   computed: {
-    ...mapState(['sum', 'msg']),
-    ...mapGetters(['message'])
+    ...mapState('countModel', ['msg']),
+    ...mapGetters('countModel',['message'])
+  },
+  mounted() {
+    console.log(this)
   },
 }
 </script>

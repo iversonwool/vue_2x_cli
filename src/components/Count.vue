@@ -1,13 +1,14 @@
 <template>
   <div>
-    <h2>sum is {{$store.state.sum}}</h2>
+    <h2>sum is {{sum}}</h2>
 
-    <button @click="increment"> + </button>&nbsp;&nbsp;&nbsp;&nbsp;
-    <button @click="decrement"> - </button>
+    <button @click="increment(1)"> + </button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button @click="decrement(1)"> - </button>
   </div>
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex'
 export default {
   name: 'MyCount',
   // data() {
@@ -15,13 +16,18 @@ export default {
   //     sum: 0
   //   }
   // },
+
+  computed: {
+    ...mapState('countModel', ['sum'])
+  },
   methods: {
-    increment() {
-      this.$store.dispatch('increment', 1)
-    },
-    decrement() {
-      this.$store.commit('DECREMENT', 1)
-    }
+    // increment() {
+    //   this.$store.dispatch('increment', 1)
+    // },
+    // decrement() {
+    //   this.$store.commit('DECREMENT', 1)
+    // }
+    ...mapMutations('countModel', {increment:'INCREMENT', decrement: 'DECREMENT'})
   },
 }
 </script>

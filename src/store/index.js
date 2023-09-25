@@ -4,28 +4,12 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import countModel from './count'
+import userModel from './user'
+
 export default new Vuex.Store({
-  state: {
-    sum: 0,
-    msg: 'Hello world',
-    active: true
-  },
-  actions: {
-    increment(context, value) {
-      context.commit('INCREMENT', value)
-    }
-  },
-  mutations: {
-    INCREMENT(state, value) {
-      state.sum += value
-    },
-    DECREMENT(state, value) {
-      state.sum -= value
-    }
-  },
-  getters: {
-    message(state) {
-      return state.msg.toUpperCase()
-    }
+  modules: {
+    countModel,
+    userModel
   }
 })
