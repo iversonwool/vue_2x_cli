@@ -20,11 +20,20 @@
 
       <div style="background-color: cyan;">animate.css</div>
     </transition>
+
+
+    <slot-demo>
+      <template slot-scope="slotProps">
+        {{slotProps}}
+      </template>
+    </slot-demo>
   </div>
 </template>
 
 <script>
 import 'animate.css'
+
+import SlotDemo from './SlotDemo.vue'
 export default {
   name: "LkPlayground",
   data() {
@@ -32,6 +41,9 @@ export default {
       isShow: true,
     };
   },
+  components: {
+    SlotDemo
+  }
 }
 </script>
 
