@@ -3,7 +3,7 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
     <HelloWorld msg="Welcome to Your Vue.js App" />
 
-    <!-- <LkPlayground ref="lkpg" /> -->
+    <LkPlayground ref="lkpg" />
     <hr />
     <router-link active-class="active" to="/home">Home</router-link>
     &nbsp;&nbsp;
@@ -16,12 +16,12 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
-// import LkPlayground from "./components/LkPlayground.vue";
+import LkPlayground from "./components/LkPlayground.vue";
 export default {
   name: "App",
   components: {
     HelloWorld,
-    // LkPlayground,
+    LkPlayground,
   },
   
   methods: {

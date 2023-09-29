@@ -35,6 +35,9 @@
 
     <div>{{msg}}</div>
     <div>{{message}}</div>
+
+    <div>{{ person.name }}-{{ person.age }}</div>
+    <button @click="person.name += '!',person.age+=1">change person info</button>
   </div>
 </template>
 
@@ -49,6 +52,10 @@ export default {
   data() {
     return {
       isShow: true,
+      person: {
+        name: 'lee how',
+        age: 12
+      }
     };
   },
   components: {
@@ -63,6 +70,15 @@ export default {
   mounted() {
     console.log(this)
   },
+  watch: {
+    person: {
+      deep: true,
+      handler(value, oldValue){
+        console.log(value)
+        console.log(oldValue)
+      }
+    }
+  }
 }
 </script>
 
